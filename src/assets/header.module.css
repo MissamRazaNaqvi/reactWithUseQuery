@@ -1,0 +1,9 @@
+.navigation {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.home {
+    margin-right: 15px;
+}
