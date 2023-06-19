@@ -1,8 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
-import { addData } from './api';
-export default function PostData() {
+import { addData } from '../api';
+
+export default function AddData() {
     const QueryClient = useQueryClient()
     const { register, handleSubmit } = useForm();
     const onSubmit = ({ title }) => {

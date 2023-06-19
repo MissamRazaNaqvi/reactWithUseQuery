@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query"
 import { Link } from "react-router-dom";
-import { deleteData, updateData } from './api.js'
-import style from './assets/style.module.css'
-import { useListOfData } from "./hooks/customUseQueryHook.js";
-export default function Test() {
+import { deleteData, updateData } from '../api.js'
+import style from '../assets/style.module.css'
+import { useListOfData } from "../hooks/customUseQueryHook.js";
+export default function Main() {
     const QueryClient = useQueryClient()
     const { data } = useListOfData()
-    const [isUpdate, setIsUpdate] = useState(false);
+    // const [isUpdate, setIsUpdate] = useState(false);
     const [seletedId, setSeletedId] = useState(0);
     const onSubmit = ({ title }) => { updataeMute.mutate({ title, seletedId }) };
     const { register, handleSubmit, setValue } = useForm();
@@ -21,17 +21,18 @@ export default function Test() {
         { onSettled: () => QueryClient.invalidateQueries(["fackData"]) })
     return (
         <div>
-            {isUpdate ?
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
-                        <label htmlFor="lastname">title:</label>
-                        <input placeholder="todo"{...register('title')} />
-                    </div>
-                    <div>
-                        <input type="submit" value='Update' />
-                    </div>
-                </form> : ''
-            }
+            {/* {isUpdate ? */}
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <label htmlFor="lastname">title:</label>
+                    <input placeholder="todo"{...register('title')} />
+                </div>
+                <div>
+                    <input type="submit" value='Update' />
+                </div>
+            </form>
+            {/* : '' */}
+            {/* } */}
             {data && data.data.map((item, index) => {
                 return (
                     <div key={index} className={style.container} >

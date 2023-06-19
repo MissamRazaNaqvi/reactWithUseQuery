@@ -2,7 +2,6 @@ import axios from 'axios'
 import React from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
-import { userdata } from '../api'
 
 export default function User() {
     let { id } = useParams()

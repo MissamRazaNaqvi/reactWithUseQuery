@@ -1,17 +1,11 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
 // import { ReactQueryDevtools } from 'react-query/devtools';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import './App.css';
-import PostData from './form';
-import Test from './test';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Routes
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from './components/Header';
+import AddData from './components/form';
+import Main from './components/main';
 import User from './components/user';
-
 function App() {
   const smallQuery = new QueryClient({})
   return (
@@ -23,8 +17,8 @@ function App() {
         <Router >
           <Header />
           <Routes>
-            <Route index element={<PostData />} />
-            <Route path="/list" element={<Test />} />
+            <Route index element={<AddData />} />
+            <Route path="/list" element={<Main />} />
             <Route path='/list/:id' element={<User />} />
           </Routes>
         </Router>
